@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('/static/restaurant.jpg');
+  background-size: cover; 
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  margin: 0;
+  padding: 20px;
+  overflow: auto;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.8); 
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="password"],
+input[type="number"],
+input[type="radio"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+input[type="radio"] {
+  width: auto;
+  margin-right: 10px;
+}
+input[type="submit"] {
+  background-color: white;
+  color: black;
+  padding: 12px 30px;
+  border: 2px solid #ffbb33;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 100%;
+  margin-top: 20px;
+  transition: all 0.3s ease; 
+}
+
+input[type="submit"]:hover {
+  background-color: #ffbb33;
+  color: white;
+  border-width: 0;
+}
+
+label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.gender-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}

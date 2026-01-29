@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #FF7A33;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+header .logo-container {
+    flex: 1;
+}
+
+header .logo {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border-radius: 45%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav ul li a:hover {
+    background-color: #FFBB33;
+    transform: scale(1.1);
+}
+
+.profil-icon img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+table {
+    width: 80%;
+    margin: 50px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #FF7A33;
+    color: white;
+}
+
+thead tr th {
+    text-align: left;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr td {
+    padding: 15px;
+    font-size: 16px;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+button {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+input[type="text"] {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s, transform 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: #FF7A33;
+    transform: scale(1.05);
+}

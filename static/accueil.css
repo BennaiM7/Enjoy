@@ -1,0 +1,140 @@
+/* Style global */
+
+.main-section .cta-btn {
+    color: white; /* Texte blanc */
+    text-decoration: none; /* Pas de soulignement */
+    font-size: 23px;
+    font-weight: 600; /* Correspond à la même graisse de texte que les autres liens */
+    transition: color 0.3s, text-decoration 0.2s;
+
+.main-section .cta-btn:hover {
+    color: #FFBB33; /* Couleur au survol, identique aux autres liens */
+    text-decoration: underline; /* Souligné au survol */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond transparent pour le body */
+    color: #333;
+    height: 100%; /* Permet de défiler si nécessaire */
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+/* En-tête */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #FF7A33; /* Fond semi-transparent pour l'en-tête */
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10; /* Au-dessus des sections */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Ombre légère */
+}
+
+/* Logo */
+header .logo-container {
+    flex: 1;
+}
+
+header .logo {
+    font-size: 36px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav ul li a:hover {
+    background-color: #FFBB33; /* Transition vers une couleur plus vive au survol */
+    transform: translateY(-3px); /* Légère élévation au survol */
+}
+
+/* Section */
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Chaque section occupe la hauteur complète de l'écran */
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(50%); /* Assombrir l'image pour rendre le texte plus lisible */
+}
+
+/* Texte des sections */
+section .content, 
+section .livreur-content, 
+section .restaurant-content {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour améliorer la lisibilité */
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+/* Spécificités des sections */
+.main-section {
+    background-image: url('/static/accueil.jpg');
+}
+
+.livreur-section {
+    background-image: url('/static/livreur_accueil.jpg');
+}
+
+.restaurant-section {
+    background-image: url('/static/restaurant.jpg'); /* Remplacez par l'image appropriée */
+}
+
+/* Liens spécifiques */
+#login, 
+#loginrestau {
+    color: white;
+    text-decoration: none;
+}
+
+#login:hover, 
+#loginrestau:hover {
+    color: #FFBB33;
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

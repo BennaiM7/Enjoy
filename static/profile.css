@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #FF7A33;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+header .logo-container {
+    flex: 1;
+}
+
+header .logo {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border-radius: 45%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav ul li a:hover {
+    background-color: #FFBB33;
+    transform: scale(1.1);
+}
+
+.profil-icon img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+table {
+    width: 80%;
+    margin: 50px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #FF7A33;
+    color: white;
+}
+
+thead tr th {
+    text-align: left;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr td {
+    padding: 15px;
+    font-size: 16px;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+button {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button[type="submit"][value="prendrecommande"] {
+    background-color: #28a745;
+    color: white;
+}
+
+button[type="submit"][value="prendrecommande"]:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+button[type="submit"][value="validerlivraison"] {
+    background-color: #007bff;
+    color: white;
+}
+
+button[type="submit"][value="validerlivraison"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button[type="submit"][value="noter"] {
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button[type="submit"][value="noter"]:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+select[name="noter"] {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #495057;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+select[name="noter"]:hover {
+    border-color: #007bff;
+}
+
+select[name="noter"]:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.points-fidel {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FF7A33;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.points-fidel h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.points-fidel .points {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}

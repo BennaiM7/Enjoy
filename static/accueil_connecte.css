@@ -1,0 +1,154 @@
+/* Style global */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* En-tête */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #FF7A33;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo */
+    flex: 1;
+}
+
+header .logo {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Navigation */
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px 15px 15px 15px;
+    border-radius: 45%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav ul li a:hover {
+    background-color: #FFBB33;
+    transform: scale(1.1);
+}
+
+.profil-icon img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+/* Section principale (Main) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 0 20px;
+    text-align: center;
+    margin-top: 80px;
+    background-image: url('/static/accueil.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(75%);
+}
+
+.search-section {
+    width: 50%;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: 2px solid #FFBB33;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-bar:focus {
+    border-color: #FFBB33;
+}
+
+.logout-button {
+    color: #ff6347;
+    font-size: 16px;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.logout-button:hover {
+    color: #d9534f; 
+}
+
+@keyframes fadeIn {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.search-section {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #FF7A33;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+.search-button:hover {
+    background-color: #FFBB33;
+    transform: scale(1.05);
+}
