@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de Restaurants</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'recherche.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo"> <a href="{{ url_for('home_connecte')}}">Enjoy</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/profile" class="profil-icon">
+                    <img src="{{ url_for('static', filename = 'user.svg')}}" alt="Profil">
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="main">
+        <div class="search-section">
+            <form action="/recherche" method="post">
+                <select id="mot-cle" name="mot-cle" class="search-bar">
+                    {% for mot in motsclefs %}
+                    <option value="{{ mot }}">{{ mot }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Rechercher</button>
+            </form>
+        </div>
+        <div id="res-search">
+            <h2>Résultats de la Recherche</h2>
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+            {% if taille > 0 %}
+                {% for resto in lst_resto %}
+                    <a href="{{ url_for('resto', nom = resto[1], idresto = resto[0])}}" class="lien-resto">
+                    <div class="resto">
+                        <strong>Nom :</strong> {{ reset jdis juto[1] }}<br>
+                        <strong>Adresse :</strong> {{ resto[2] }}<br>
+                        <strong>Code Postal :</strong> {{ resto[3] }}    
+                    </div>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>Aucun résultat trouvé.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

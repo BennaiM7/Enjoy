@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil connecté restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'accueil_connecte_restaurant.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo">Enjoy</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/profilerestaurant" class="profil-icon">
+                    <img src="{{ url_for('static', filename = 'user.svg')}}" alt="Profil">
+                </a></li>
+                <li><a href="/deconnexion" class="logout-button">Se déconnecter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="search-section">
+            <form action="/recherche" method="post">
+                <input type="text" id="mot-clef" name="mot-clef" placeholder="Rechercher: Ex: pizza" class="search-bar">
+            </form>
+        </section>
+    </main>
+</body>
+</html>

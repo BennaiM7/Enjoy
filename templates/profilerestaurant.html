@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile livreur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profilerestaurant.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo">Enjoy</h1>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/profilelivreur" class="profil-icon">
+                        <img src="{{ url_for('static', filename='user.svg') }}" alt="Profil">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <table>
+        <thead>
+            <tr>
+                <th>Id plat</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Action supplémentaire</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for plat in plats %}
+            <tr>
+                <td>{{ plat.idplat }}</td>
+                <td>{{ plat.nom }}</td>
+                <td>{{ plat.prix }}</td>
+                <td>{{ plat.descr }}</td>
+                <td>
+                <form method="POST" action="/profilerestaurant">
+                    <input type="hidden" name="idplat" value="{{ plat.idplat }}">
+                    <input type="hidden" name="action" value="supprimerplat">
+                    <button type="submit">Supprimer le plat</button>
+                </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if not plats %}
+        <p>Aucun plat trouvé.</p>
+    {% endif %}
+    <div class="ajouter-plat">
+        <form method="POST" action="/profilerestaurant">
+            <input type="hidden" name="action" value="ajouterplat">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id plat</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="idplat" name="idplat" required></td>
+                        <td><input type="text" id="nom" name="nom" required></td>
+                        <td><input type="text" id="prix" name="prix" required></td>
+                        <td><input type="text" id="descr" name="descr" required></td>
+                        <td><button type="submit">Ajouter le plat</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

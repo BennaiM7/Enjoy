@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil_connecte</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'accueil_connecte.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo">Enjoy</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/profile" class="profil-icon">
+                    <img src="{{ url_for('static', filename = 'user.svg')}}" alt="Profil">
+                </a></li>
+                <li><a href="/deconnexion" class="logout-button">Se déconnecter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="search-section">
+            <form action="/recherche" method="post">
+                <select id="mot-cle" name="mot-cle" claset jdis jus="search-bar">
+                    <option value="pizza">Pizza</option>
+                    <option value="sushi">Sushi</option>
+                    <option value="burger">Burger</option>
+                    <option value="italien">Italien</option>
+                    <div class="checkbox-option"></div>
+                </select>
+                <button type="submit">Rechercher</button>
+            </form>
+        </div>
+
+    </main>
+</body>
+</html>

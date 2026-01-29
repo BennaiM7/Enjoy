@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'profile.css') }}">
+    </head>
+    <body>
+        <header>
+            <div class="logo-container">
+                <h1 class="logo">Enjoy</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/profile" class="profil-icon">
+                        <img src="{{ url_for('static', filename = 'user.svg')}}" alt="Profil">
+                    </a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="points-fidel">
+            <h2>Vos points de fidélité :</h2>
+            <p class="points">{{ points }}</p>
+            <h5>Pour parrainer un de vos amis, partagez leur votre e-mail qu'ils doivent renseigner lors de l'inscription</h5>
+        </div>
+        
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro de commande</th>
+                    <th>Montant</th>
+                    <th>Statut commande</th>
+                    <th>Modifier</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for commande in commandes %}
+                <tr>
+                    <td>{{ commande.idcommande }}</td>
+                    <td>{{ commande.montant }}€</td>
+                    <td>
+                        {% if commande.statutcommande == 3 %}
+                            Livré
+                        {% elif commande.statutcommande == 2 %}
+                            En cours livraison
+                        {% elif commande.statutcommande == 1 %}
+                            En attente
+                        {% elif commande.statutcommande == 0 %}
+                            Indisponible
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if commande.statutcommande == 1 %}
+                            <form method="POST" action="/profile">
+                                <input type="hidden" name="idcommande" value="{{ commande.idcommande }}">
+                                <input type="hidden" name="action" value="annuler">
+                                <button type="submit">Annuler commande</button>
+                            </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% if not commandes %}
+        <p>Aucune commande trouvée.</p>
+    {% endif %}
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Numéro de commande</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.idcommande }}</td>
+                <td>
+                    {% if commande.statutcommande == 3 and commande.note == 0 %}
+                        <form method="POST" action="/profile">
+                            <input type="hidden" name="idcommande" value="{{ commande.idcommande }}">
+                            <input type="hidden" name="action" value="noter">
+                            <select name="noter">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <button type="submit">Noter</button>
+                        </form>
+                    {% elif commande.statutcommande == 2 and commande.note == 0 %}
+                        Pas encore livré
+                    {% elif commande.statutcommande == 1 and commande.note == 0 %}
+                        Pas encore livré
+                    {% else %}
+                        {{ commande.note }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </body>
+    </html>
+

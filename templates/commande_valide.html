@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande valide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo">Enjoy</h1>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/profile" class="profil-icon">
+                        <img src="{{ url_for('static', filename='user.svg') }}" alt="Profil"> <!-- Icône Profil -->
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <p>COmmande validé</p>
+    </body>
+</html>

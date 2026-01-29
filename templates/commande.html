@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commander</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'commande.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo"><a href="{{ url_for('home_connecte')}}">Enjoy</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/profile" class="profil-icon">
+                    <img src="{{ url_for('static', filename = 'user.svg')}}" alt="Profil">
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="main">
+        <div class="order-container">
+            <h2>Résumé de votre commande</h2>
+            <div class="order-summary">
+                <h3>Plats sélectionnés :</h3>
+                <ul>
+                    <li>
+                        <span class="plat-name">Pizza Margherita</span> - <span class="plat-price">12.00€</span>
+                    </li>
+                    <li>
+                        <span class="plat-name">Pâtes Carbonara</span> - <span class="plat-price">15.00€</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="order-details">
+                <h3>Informations de livraison</h3>
+                <form action="/confirmer_commande" method="POST">
+                    <label for="numcard">Numéro de carte :</label>
+                    <input type="number" id="numcard" name="numcard" required maxlength="16">
+                    <label for="datecard">Date d'expiration :</label>
+                    <input type="text" id="datecard" name="datecard" required maxlength="5">
+                    <label for="namecard">Nom de la carte :</label>
+                    <input type="text" id="namecard" name="namecard" required>
+                    <label for="cryptocard">Cryptogramme :</label>
+                    <input type="number" id="cryptocard" name="cryptocard" pattern="[0-9]{3}" required>
+                    <button type="submit" class="submit-btn">Confirmer la commande</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

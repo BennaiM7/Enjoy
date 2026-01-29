@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enjoy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'accueil.css') }}">
+</head>
+<body>
+    <!-- En-tête (Header) -->
+    <header>
+        <div class="logo-container">
+            <h1 class="logo">Enjoy</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/connexion" class="nav-link">Connexion</a></li>
+                <li><a href="/inscription" class="nav-link">S'inscrire</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section principale -->
+    <section class="main-section">
+        <div class="content">
+            <p>Commandez vos plats préférés en quelques clics.</p>
+            <a href="/inscription" class="cta-btn">S'inscrire</a>
+        </div>
+    </section>
+
+    <!-- Section Livreur -->
+    <section class="livreur-section">
+        <div class="livreur-content">
+            <p>Livraison ? <a id = 'login' href="/connexionlivreur"> Connectez-vous ! </a></p>
+        </div>
+    </section>
+
+    <section class="restaurant-section">
+        <div class="restaurant-content">
+            <p>Restaurant ? <a id = 'loginrestau' href="/connexionrestaurant"> Connectez-vous ! </a></p>
+        </div>
+    </section>
+</body>
+</html>

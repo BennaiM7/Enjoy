@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'panier.css') }}">
+</head>
+
+
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo"> <a href="{{ url_for('home_connecte')}}">Enjoy</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/profile" class="profil-icon">
+                    <img src="{{ url_for('static', filename = 'user.svg')}}" alt="Profil">
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="main">
+        <div class="order-container">
+            <h2>Résumé de votre commande</h2>
+            
+            <div class="order-summary">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix unitaire</th>
+                            <th>Quantité</th>
+                            <th>Prix Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for elem in elempanier %}
+                            <tr>
+                                <td>{{ elem[0] }}</td>
+                                <td>{{ elem[1] }}€</td>
+                                <td>{{ elem[2] }}</td>
+                                <td>{{ elem[3] }}€</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ total }}€</td>
+                        </tr>
+                </table>
+            </div>
+        </div>
+        <div class="order-details">
+            <h3>Informations de livraison</h3>
+            <form method="POST">
+                <label for="adresse">Adresse :</label>
+                <input type="text" name="adresse" id="adresse" required>
+                <label for="codepostal">Code postal:</label>
+                <input type="number" name="codepostal" id="codepostal" required>
+                <input type="hidden" name="action" value="commander">
+                <button type="submit">Commander</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

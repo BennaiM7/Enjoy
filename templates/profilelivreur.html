@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile livreur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profilelivreur.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo">Enjoy</h1>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/profilelivreur" class="profil-icon">
+                        <img src="{{ url_for('static', filename='user.svg') }}" alt="Profil">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <table>
+        <thead>
+            <tr>
+                <th>Numéro de commande</th>
+                <th>Statut de la commande</th>
+                <th>Changer statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.idcommande }}</td>
+                <td>
+                    {% if commande.statutcommande == 3 %}
+                        Livré
+                    {% elif commande.statutcommande == 2 %}
+                        En cours de livraison
+                    {% elif commande.statutcommande == 1 %}
+                        En attente
+                    {% elif commande.statutcommande == 0 %}
+                        Indisponible
+                    {% endif %}
+                </td>
+                <td>
+                    {% if commande.statutcommande == 1 %}
+                        <form method="POST" action="/profilelivreur">
+                            <input type="hidden" name="idcommande" value="{{ commande.idcommande }}">
+                            <input type="hidden" name="action" value="prendrecommande">
+                            <button type="submit">Récupérer la commande</button>
+                        </form>
+                    {% elif commande.statutcommande == 2 %}
+                        <form method="POST" action="/profilelivreur">
+                            <input type="hidden" name="idcommande" value="{{ commande.idcommande }}">
+                            <input type="hidden" name="action" value="validerlivraison">
+                            <button type="submit">Livraison terminé</button>
+                        </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if not commandes %}
+        <p>Aucune commande trouvée.</p>
+    {% endif %}
+</body>
+</html>

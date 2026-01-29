@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription restaurant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'inscriptionrestaurant.css') }}">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Inscription</h1>
+    <form method="post" action="inscriptionrestaurant" required>
+      <div class="form-group">
+        <label for="idresto">Idresto :</label>
+        <input type="text" id="idresto" name="idresto" required>
+      </div>
+      <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+      </div>
+      <div class="form-group">
+        <label for="frais">Frais :</label>
+        <input type="number" id="frais" name="frais" required>
+      </div>
+      <div class="form-group">
+        <label for="adresse">Adresse</label>
+        <input type="text" id="adresse" name="adresse" required>
+      </div>
+      <div class="form-group">
+        <label for="codepostal">Code Postal :</label>
+        <input type="number" id="codepostal" name="codepostal" required>
+      </div>
+      <div class="form-group">
+        <label for="ville">Ville :</label>
+        <input type="text" id="ville" name="ville" required>
+      </div>
+      <div class="form-group">
+        <label for="mdp">Mot de passe :</label>
+        <input type="password" id="mdp" name="mdp" required>
+      </div>
+      <div class="form-group">
+        <label for="mdp_repeat">Répéter le mot de passe :</label>
+        <input type="password" id="mdp_repeat" name="mdp_repeat" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Inscription">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

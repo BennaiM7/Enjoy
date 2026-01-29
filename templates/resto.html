@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ lst1[0] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'resto.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo"> <a href="{{ url_for('home_connecte')}}">Enjoy</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/profile" class="profil-icon">
+                    <img src="{{ url_for('static', filename = 'user.svg')}}" alt="Profil">
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="main">
+        <div class="restaurant-details">
+            <h2><span>{{ lst1[0] }}</span></h2>
+            <div class="restaurant-info">
+                <p><strong>Adresse :</strong> {{ lst1[1] }}</p>
+                <p><strong>Code Postal :</strong> {{ lst1[3] }}</p>
+                <p><strong>Ville :</strong> {{ lst1[4] }}</p>
+
+                <!-- Section Horaires -->
+                <div class="restaurant-horaires">
+                    <h3>Horaires d'ouverture</h3>
+                    <ul>
+                        {% for horaire in lst3 %}
+                        <li><strong>{{ horaire[0] }}:</strong> {{ horaire[1] }} - {{ horaire[2] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="restaurant-fermeture">
+                    <h3>Fermeture exceptionnelle</h3>
+                    <ul>
+                        {% for horaire in lst3 %}
+                        <li>Le {{ horaire[3] }}, Motif : {{ horaire[4] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Menu du restaurant -->
+            <div class="restaurant-menu">
+                <h3>Menu</h3>
+                <ul>
+                    
+                        {% for plat in lst2 %}
+                            <li>
+                                <form method = "POST">
+                                <strong>{{ plat[2] }} : &nbsp; </strong> {{ plat[4] }}. Prix : {{ plat[3] }}€ + {{ lst1[2] }}€ de frais
+                                <input type="hidden" name="idplat" value="{{ plat[1] }}">
+                                <br><input type="number" id="quantite" name="quantite" min="1">
+                                <button type="submit">Ajouter au panier</button>
+                                </form>
+                            </li>
+                        {% endfor %}
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
